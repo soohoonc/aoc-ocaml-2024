@@ -1,0 +1,69 @@
+(lang dune 3.12)
+(name aoc)
+(sections (lib .) (libexec .) (bin ../../bin))
+(files
+ (lib
+  (2024/day_01.ml
+   2024/day_02.ml
+   2024/day_03.ml
+   2024/day_04.ml
+   2024/y2024.a
+   2024/y2024.cma
+   2024/y2024.cmi
+   2024/y2024.cmt
+   2024/y2024.cmx
+   2024/y2024.cmxa
+   2024/y2024.ml
+   2024/y2024__Day_01.cmi
+   2024/y2024__Day_01.cmt
+   2024/y2024__Day_01.cmx
+   2024/y2024__Day_02.cmi
+   2024/y2024__Day_02.cmt
+   2024/y2024__Day_02.cmx
+   2024/y2024__Day_03.cmi
+   2024/y2024__Day_03.cmt
+   2024/y2024__Day_03.cmx
+   2024/y2024__Day_04.cmi
+   2024/y2024__Day_04.cmt
+   2024/y2024__Day_04.cmx
+   META
+   dune-package
+   opam))
+ (libexec (2024/y2024.cmxs))
+ (bin (main)))
+(library
+ (name aoc.2024)
+ (kind normal)
+ (archives (byte 2024/y2024.cma) (native 2024/y2024.cmxa))
+ (plugins (byte 2024/y2024.cma) (native 2024/y2024.cmxs))
+ (native_archives 2024/y2024.a)
+ (requires core async)
+ (main_module_name Y2024)
+ (modes byte native)
+ (modules
+  (wrapped
+   (group
+    (alias
+     (obj_name y2024)
+     (visibility public)
+     (kind alias)
+     (source (path Y2024) (impl (path 2024/y2024.ml-gen))))
+    (name Y2024)
+    (modules
+     (module
+      (obj_name y2024__Day_01)
+      (visibility public)
+      (source (path Day_01) (impl (path 2024/day_01.ml))))
+     (module
+      (obj_name y2024__Day_02)
+      (visibility public)
+      (source (path Day_02) (impl (path 2024/day_02.ml))))
+     (module
+      (obj_name y2024__Day_03)
+      (visibility public)
+      (source (path Day_03) (impl (path 2024/day_03.ml))))
+     (module
+      (obj_name y2024__Day_04)
+      (visibility public)
+      (source (path Day_04) (impl (path 2024/day_04.ml))))))
+   (wrapped true))))
