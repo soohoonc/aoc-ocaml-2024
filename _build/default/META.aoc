@@ -1,9 +1,0 @@
-package "2024" (
-  directory = "2024"
-  description = ""
-  requires = "async core"
-  archive(byte) = "y2024.cma"
-  archive(native) = "y2024.cmxa"
-  plugin(byte) = "y2024.cma"
-  plugin(native) = "y2024.cmxs"
-)
